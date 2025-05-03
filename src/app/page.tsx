@@ -1,7 +1,13 @@
+'use client'
 
+import styles from './page.module.scss';
+import clsx from 'clsx';
+import TechStackList from './TechStackList';
 
-export default function Home() {
+export default function Page() {
   return (
-    <div>Koyan World</div>
+    <div className={clsx(styles['main-container'])}>
+      <TechStackList />
+    </div>
   );
 }
