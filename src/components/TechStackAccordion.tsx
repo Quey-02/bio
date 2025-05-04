@@ -11,43 +11,48 @@ export function TechStackAccordion({
   field: ProgrammingLanguageProficiency;
 }) {
   return (
-    <Accordion.Root
-      type="single"
-      collapsible
-      className={clsx(styles["accordion"])}
-      defaultValue="item-1"
-    >
-      <Accordion.Item value="item-1">
-        <Accordion.Header className={clsx(styles["header"])}>
-          <Accordion.Trigger className={clsx(styles["accordion-trigger"])}>
-            <div className={clsx(styles["caption"])}>
-              <div className={clsx(styles["programming-language-name"])}>
-                {field.name}
+    <div key={field.name} className={clsx(styles["tech-item"])}>
+      <Accordion.Root
+        type="single"
+        collapsible
+        className={clsx(styles["accordion"])}
+        defaultValue="item-1"
+      >
+        <Accordion.Item value="item-1">
+          <Accordion.Header className={clsx(styles["header"])}>
+            <Accordion.Trigger className={clsx(styles["accordion-trigger"])}>
+              <div className={clsx(styles["caption"])}>
+                <div className={clsx(styles["programming-language-name"])}>
+                  {field.name}
+                </div>
+                <ChevronDownIcon
+                  className={clsx(styles["accordion-chervon"])}
+                  aria-hidden
+                />
               </div>
-              <ChevronDownIcon
-                className={clsx(styles["accordion-chervon"])}
-                aria-hidden
-              />
-            </div>
-          </Accordion.Trigger>
-          <Accordion.Content>
-            <div className={clsx(styles["modules"])}>
-              <ul className={clsx(styles["module-list"])}>
-                {field.modules.map((module) => (
-                  <li key={module.name} className={clsx(styles["module-item"])}>
-                    <img
-                      src={module.icon_uri}
-                      alt={module.name}
-                      className={clsx(styles["module-icon"])}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Accordion.Content>
-        </Accordion.Header>
-      </Accordion.Item>
-    </Accordion.Root>
+            </Accordion.Trigger>
+            <Accordion.Content className={clsx(styles["content"])}>
+              <div className={clsx(styles["modules"])}>
+                <ul className={clsx(styles["module-list"])}>
+                  {field.modules.map((module) => (
+                    <li
+                      key={module.name}
+                      className={clsx(styles["module-item"])}
+                    >
+                      <img
+                        src={module.icon_uri}
+                        alt={module.name}
+                        className={clsx(styles["module-icon"])}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Accordion.Content>
+          </Accordion.Header>
+        </Accordion.Item>
+      </Accordion.Root>
+    </div>
   );
 }
 

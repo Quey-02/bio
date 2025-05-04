@@ -1,0 +1,63 @@
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    gap: 1rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .accordion-chervon {
+        color: var(--violet-10);
+        transition: transform 300ms cubic-bezier(0.87, 0, 0.13, 1);
+
+        width: 40px;
+        height: 40px;
+    }
+
+    .accordion-trigger[data-state="open"] .accordion-chervon {
+        transform: rotate(180deg);
+    }
+
+    .caption {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        color: #999;
+
+        .programming-language-name {
+            font-weight: 500;
+            color: #555;
+        }
+    }
+
+    .level {
+        color: #777;
+    }
+
+    .content {
+        .modules {
+            margin-top: 0.5rem;
+
+            .module-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                .module-item {
+                    color: #666;
+                }
+            }
+        }
+    }
+}
