@@ -1,42 +1,30 @@
 {
-    "programingLanguages": [
-      {
-        "name": "JavaScript, TypeScript",
-        "icon_uri": "/public/js-icon.svg",
-        "level": 4,
-        "modules": [
-          {
-            "name": "Next.js",
-            "level": 4
-          }
-        ]
-      },
-      {
-        "name": "Python",
-        "icon_uri": "/public/python-icon.svg",
-        "level": 4,
-        "modules": [
-            {
-                "name": "numpy, scipy, pandas, matplotlib",
-                "level": 4,
-                "experience": 3
-            },
-            {
-                "name": "scikit-learn",
-                "level": 4,
-                "experience": 3
-            },
-            {
-                "name": "PyTorch, Pytorch Lightning",
-                "level": 3,
-                "experience": 1
-            },
-            {
-                "name": "langhchain",
-                "level": 2,
-                "experience": 1
-            }
-        ]
-      }
-    ]
-  }
+  "fields": [
+    {
+      "name": "Web",
+      "modules": [
+        {
+          "name": "React",
+          "icon_uri": "/public/react.svg"
+        },
+        {
+          "name": "Node.js",
+          "icon_uri": "/public/nodejs.svg"
+        }
+      ]
+    },
+    {
+      "name": "Data Science",
+      "modules": [
+        {
+          "name": "Python",
+          "icon_uri": "/public/django.svg"
+        },
+        {
+          "name": "Pytorch",
+          "icon_uri": "/public/flask.svg"
+        }
+      ]
+    }
+  ]
+}

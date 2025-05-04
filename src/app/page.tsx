@@ -1,13 +1,8 @@
-'use client'
+"use client";
 
-import styles from './page.module.scss';
-import clsx from 'clsx';
-import TechStackList from './TechStackList';
+import styles from "./page.module.scss";
+import clsx from "clsx";
 
 export default function Page() {
-  return (
-    <div className={clsx(styles['main-container'])}>
-      <TechStackList />
-    </div>
-  );
+  return <div className={clsx(styles["main-container"])}>koyakoya top</div>;
 }

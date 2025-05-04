@@ -1,0 +1,54 @@
+import React from "react";
+import clsx from "clsx";
+import styles from "./TechStackAccordion.module.scss";
+import { Accordion } from "radix-ui";
+import { ChevronDownIcon } from "@radix-ui/react-icons";
+import { ProgrammingLanguageProficiency } from "@/types/main";
+
+export function TechStackAccordion({
+  field,
+}: {
+  field: ProgrammingLanguageProficiency;
+}) {
+  return (
+    <Accordion.Root
+      type="single"
+      collapsible
+      className={clsx(styles["accordion"])}
+      defaultValue="item-1"
+    >
+      <Accordion.Item value="item-1">
+        <Accordion.Header className={clsx(styles["header"])}>
+          <Accordion.Trigger className={clsx(styles["accordion-trigger"])}>
+            <div className={clsx(styles["caption"])}>
+              <div className={clsx(styles["programming-language-name"])}>
+                {field.name}
+              </div>
+              <ChevronDownIcon
+                className={clsx(styles["accordion-chervon"])}
+                aria-hidden
+              />
+            </div>
+          </Accordion.Trigger>
+          <Accordion.Content>
+            <div className={clsx(styles["modules"])}>
+              <ul className={clsx(styles["module-list"])}>
+                {field.modules.map((module) => (
+                  <li key={module.name} className={clsx(styles["module-item"])}>
+                    <img
+                      src={module.icon_uri}
+                      alt={module.name}
+                      className={clsx(styles["module-icon"])}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Accordion.Content>
+        </Accordion.Header>
+      </Accordion.Item>
+    </Accordion.Root>
+  );
+}
+
+export default TechStackAccordion;

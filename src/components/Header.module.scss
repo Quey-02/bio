@@ -1,0 +1,29 @@
+header.header{
+    background-color: #282c34;
+    padding: 20px;
+    color: white;
+    text-align: center;
+
+    h1.site-title{
+        font-size: 10vh;
+        margin: 0;
+    }
+
+    .tabs-container{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+        .tab{
+            margin: 0 15px;
+            font-size: 2vh;
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
