@@ -22,9 +22,7 @@ export function TechStackAccordion({
           <Accordion.Header className={clsx(styles["header"])}>
             <Accordion.Trigger className={clsx(styles["accordion-trigger"])}>
               <div className={clsx(styles["caption"])}>
-                <div className={clsx(styles["programming-language-name"])}>
-                  {field.name}
-                </div>
+                <div className={clsx(styles["field-name"])}>{field.name}</div>
                 <ChevronDownIcon
                   className={clsx(styles["accordion-chervon"])}
                   aria-hidden
@@ -33,9 +31,9 @@ export function TechStackAccordion({
             </Accordion.Trigger>
             <Accordion.Content className={clsx(styles["content"])}>
               <div className={clsx(styles["modules"])}>
-                <ul className={clsx(styles["module-list"])}>
+                <div className={clsx(styles["module-list"])}>
                   {field.modules.map((module) => (
-                    <li
+                    <div
                       key={module.name}
                       className={clsx(styles["module-item"])}
                     >
@@ -44,9 +42,12 @@ export function TechStackAccordion({
                         alt={module.name}
                         className={clsx(styles["module-icon"])}
                       />
-                    </li>
+                      <div className={clsx(styles["module-name"])}>
+                        {module.name}
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             </Accordion.Content>
           </Accordion.Header>

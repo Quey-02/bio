@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import clsx from "clsx";
 import React from "react";
 import styles from "./Header.module.scss"; // Adjust the path as needed
@@ -10,7 +10,7 @@ export default function Header() {
       <h1 className={clsx(styles["site-title"])}> koya-jp </h1>
       <div className={clsx(styles["tabs-container"])}>
         <div className={clsx(styles["tab"])}>
-          <Link href="/home" className={clsx(styles[""])}>
+          <Link href="/" className={clsx(styles[""])}>
             Top
           </Link>
         </div>

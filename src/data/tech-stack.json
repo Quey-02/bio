@@ -5,11 +5,11 @@
       "modules": [
         {
           "name": "React",
-          "icon_uri": "/public/react.svg"
+          "icon_uri": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
         },
         {
-          "name": "Node.js",
-          "icon_uri": "/public/nodejs.svg"
+          "name": "TypeScript",
+          "icon_uri": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
         }
       ]
     },
@@ -18,11 +18,11 @@
       "modules": [
         {
           "name": "Python",
-          "icon_uri": "/public/django.svg"
+          "icon_uri": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
         },
         {
           "name": "Pytorch",
-          "icon_uri": "/public/flask.svg"
+          "icon_uri": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg"
         }
       ]
     }
