@@ -48,26 +48,32 @@
         color: #777;
     }
 
-    .content {
-        .modules {
-            margin-top: 0.5rem;
+    .module-list {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 1em;
 
-            .module-list {
-                width: 100%;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                list-style: none;
-                padding: 0;
-                margin: 0;
+        .module-item {
+            width: fit-content;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            color: #666;
+            text-align: center;
+            line-height: 1.5rem; /* テキストを上下中央揃えにするための設定 */
 
-                .module-item {
-                    width: fit-content;
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: nowrap;
-                    color: #666;
-                }
+            * {
+                height: 1.5rem;
+                font-size: 1.5rem;
+                text-align: center;
             }
         }
     }

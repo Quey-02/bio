@@ -29,26 +29,21 @@ export function TechStackAccordion({
                 />
               </div>
             </Accordion.Trigger>
-            <Accordion.Content className={clsx(styles["content"])}>
-              <div className={clsx(styles["modules"])}>
-                <div className={clsx(styles["module-list"])}>
-                  {field.modules.map((module) => (
-                    <div
-                      key={module.name}
-                      className={clsx(styles["module-item"])}
-                    >
-                      <img
-                        src={module.icon_uri}
-                        alt={module.name}
-                        className={clsx(styles["module-icon"])}
-                      />
-                      <div className={clsx(styles["module-name"])}>
-                        {module.name}
-                      </div>
-                    </div>
-                  ))}
+            <Accordion.Content
+              className={clsx(styles["content"], styles["module-list"])}
+            >
+              {field.modules.map((module) => (
+                <div key={module.name} className={clsx(styles["module-item"])}>
+                  <img
+                    src={module.icon_uri}
+                    alt={module.name}
+                    className={clsx(styles["module-icon"])}
+                  />
+                  <div className={clsx(styles["module-name"])}>
+                    {module.name}
+                  </div>
                 </div>
-              </div>
+              ))}
             </Accordion.Content>
           </Accordion.Header>
         </Accordion.Item>
