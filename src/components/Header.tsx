@@ -29,6 +29,11 @@ export default function Header() {
             Social
           </Link>
         </div>
+        <div className={clsx(styles["apps"])}>
+          <Link href="/apps" className={clsx(styles[""])}>
+            Apps
+          </Link>
+        </div>
       </div>
     </header>
   );
