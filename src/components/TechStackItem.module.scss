@@ -1,0 +1,55 @@
+.tech-item {
+    .box-tech-field-caption{
+        .tech-field-caption {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+    }
+    
+
+    .content {
+        display: flex;
+        background-color: #fff;
+        flex-direction: row;
+        align-items: center;
+        height: fit-content;
+        gap: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+
+        padding: 1rem;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .module-item {
+            width: fit-content;
+            display: flex;
+            flex-direction: row;
+            gap: 0.3rem;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: nowrap;
+            color: #666;
+            text-align: center;
+            line-height: 1.5rem; /* テキストを上下中央揃えにするための設定 */
+
+            * {
+                height: 1.0rem;
+                font-size: 1.0rem;
+                text-align: center;
+
+                line-height: 1.0rem;
+            }
+        }
+        
+    }
+}

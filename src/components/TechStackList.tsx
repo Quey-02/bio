@@ -4,17 +4,18 @@ import React from "react";
 import styles from "./TechStackList.module.scss";
 import techStack from "@/data/tech-stack.json";
 import { TechStack, ProgrammingLanguageProficiency } from "@/types/main";
-import TechStackAccordion from "./TechStackAccordion";
-import { Accordion } from "radix-ui";
+import TechStackAccordion from "./TechStackItem";
 
 export default function TechStackList() {
   return (
-    <Accordion.Root type="multiple" className={clsx(styles["tech-stack-list"])}>
+    <ul className={clsx(styles["tech-stack-list"])}>
       {(techStack as TechStack).fields.map(
         (field: ProgrammingLanguageProficiency, fieldIdx) => (
-          <TechStackAccordion key={fieldIdx} field={field} />
+          <li key={fieldIdx} className={clsx(styles["tech-stack-item"])}>
+            <TechStackAccordion field={field} />
+          </li>
         )
       )}
-    </Accordion.Root>
+    </ul>
   );
 }

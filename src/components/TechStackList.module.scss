@@ -2,10 +2,9 @@
 
 .tech-stack-list {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex: 0 0 50%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) ;
+
   justify-content: space-around;
   gap: 1rem;
   padding: 1rem;
@@ -16,4 +15,8 @@
   // &>*{
   //   flex: 1;
   // }
+
+  .tech-stack-item{
+
+  }
 }
