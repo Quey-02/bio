@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
+import clsx from "clsx";
+import styles from "./layout.module.scss";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,7 +40,7 @@ export default function RootLayout({
           scaling="95%"
         >
           <Header />
-          {children}
+          <div className={clsx(styles["body-container"])}>{children}</div>
         </Theme>
       </body>
     </html>

@@ -2,21 +2,12 @@
 
 .tech-stack-list {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) ;
+  display: flex;
+  flex-direction: column;
 
   justify-content: space-around;
   gap: 1rem;
   padding: 1rem;
-  background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-  // &>*{
-  //   flex: 1;
-  // }
-
-  .tech-stack-item{
-
-  }
 }

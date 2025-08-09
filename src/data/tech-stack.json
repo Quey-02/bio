@@ -8,8 +8,29 @@
           "icon_uri": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
         },
         {
+          "name": "Next.js",
+          "icon_uri": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
+        },
+        {
           "name": "TypeScript",
           "icon_uri": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+        },
+        {
+          "name": "Go",
+          "icon_uri": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg"
+        }
+      ]
+    },
+    {
+      "name": "Game",
+      "modules": [
+        {
+          "name": "Unity",
+          "icon_uri": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg"
+        },
+        {
+          "name": "C#",
+          "icon_uri": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg"
         }
       ]
     },
@@ -23,6 +44,10 @@
         {
           "name": "Pytorch",
           "icon_uri": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg"
+        },
+        {
+          "name": "scikit-learn",
+          "icon_uri": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg"
         }
       ]
     }
