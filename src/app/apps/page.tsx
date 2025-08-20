@@ -27,7 +27,8 @@ export default function Page() {
 
   return (
     <div className={clsx(styles["main-container"])}>
-      <h1> today&apos;s news </h1>
+      <div className={clsx(styles[""])}>工事中</div>
+      <h2> today&apos;s news </h2>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {summary && (
