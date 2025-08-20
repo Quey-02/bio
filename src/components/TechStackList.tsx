@@ -4,7 +4,7 @@ import React from "react";
 import styles from "./TechStackList.module.scss";
 import techStack from "@/data/tech-stack.json";
 import { TechStack, ProgrammingLanguageProficiency } from "@/types/main";
-import TechStackAccordion from "./TechStackItem";
+import TechStackItem from "./TechStackItem";
 
 export default function TechStackList() {
   return (
@@ -12,7 +12,7 @@ export default function TechStackList() {
       {(techStack as TechStack).fields.map(
         (field: ProgrammingLanguageProficiency, fieldIdx) => (
           <li key={fieldIdx} className={clsx(styles["tech-stack-item"])}>
-            <TechStackAccordion field={field} />
+            <TechStackItem field={field} />
           </li>
         )
       )}

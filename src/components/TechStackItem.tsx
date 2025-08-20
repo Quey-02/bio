@@ -3,7 +3,7 @@ import clsx from "clsx";
 import styles from "./TechStackItem.module.scss";
 import { ProgrammingLanguageProficiency } from "@/types/main";
 
-export function TechStackAccordion({
+export function TechStackItem({
   field,
 }: {
   field: ProgrammingLanguageProficiency;
@@ -30,4 +30,4 @@ export function TechStackAccordion({
   );
 }
 
-export default TechStackAccordion;
+export default TechStackItem;
