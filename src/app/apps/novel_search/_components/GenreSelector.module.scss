@@ -1,0 +1,14 @@
+.genre-selector {
+  margin: 1rem 0;
+}
+
+.genre-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.genre-button {
+  min-width: 80px;
+}

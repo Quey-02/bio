@@ -1,0 +1,96 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 80px);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.chat-header {
+  text-align: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--gray-6);
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-12);
+  margin: 0 0 0.25rem 0;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--gray-11);
+  margin: 0 0 0.5rem 0;
+}
+
+.restart-button {
+  margin-top: 0.5rem;
+}
+
+.chat-container {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 0;
+  
+  // カスタムスクロールバー
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--gray-6);
+    border-radius: 3px;
+  }
+}
+
+.loading-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: var(--gray-11);
+  font-size: 0.875rem;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: var(--red-3);
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  
+  p {
+    margin: 0;
+    color: var(--red-11);
+    font-size: 0.875rem;
+  }
+}
+
+.input-container {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--gray-6);
+}
+
+.input-field {
+  flex: 1;
+}

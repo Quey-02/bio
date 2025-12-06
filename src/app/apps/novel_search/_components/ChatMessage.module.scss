@@ -1,0 +1,52 @@
+.message-container {
+  display: flex;
+  margin-bottom: 1rem;
+  
+  &.user {
+    justify-content: flex-end;
+  }
+  
+  &.assistant {
+    justify-content: flex-start;
+  }
+}
+
+.message-bubble {
+  max-width: 80%;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  
+  .user & {
+    background-color: var(--accent-9);
+    color: white;
+    border-bottom-right-radius: 0.25rem;
+  }
+  
+  .assistant & {
+    background-color: var(--gray-3);
+    color: var(--gray-12);
+    border-bottom-left-radius: 0.25rem;
+  }
+}
+
+.message-content {
+  p {
+    margin: 0;
+    line-height: 1.5;
+    
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+    
+    &:empty {
+      height: 0.5rem;
+    }
+  }
+}
+
+.novels-container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
