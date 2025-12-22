@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import styles from "./page.module.scss";
 import type { App } from "../../types/apps";
 import appsData from "../../data/apps.json";
@@ -47,7 +48,13 @@ export default function AppsPage() {
               {app.comingSoon ? (
                 <div className={styles["coming-soon-placeholder"]}></div>
               ) : app.thumbnail ? (
-                <img src={app.thumbnail} alt={app.title} />
+                <Image
+                  src={app.thumbnail}
+                  alt={app.title}
+                  width={600}
+                  height={200}
+                  style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                />
               ) : (
                 <div className={styles["placeholder-image"]}></div>
               )}
@@ -92,7 +99,13 @@ export default function AppsPage() {
             <div className={styles["modal-body"]}>
               <div className={styles["modal-thumbnail"]}>
                 {selectedApp.thumbnail ? (
-                  <img src={selectedApp.thumbnail} alt={selectedApp.title} />
+                  <Image
+                    src={selectedApp.thumbnail}
+                    alt={selectedApp.title}
+                    width={800}
+                    height={300}
+                    style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                  />
                 ) : (
                   <div className={styles["placeholder-image"]}></div>
                 )}

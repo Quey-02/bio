@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import styles from "./page.module.scss";
 import type { Game } from "../../types/games";
 import gamesData from "../../data/games.json";
@@ -37,7 +38,13 @@ export default function GamesPage() {
               {game.comingSoon ? (
                 <div className={styles["coming-soon-placeholder"]}></div>
               ) : game.thumbnail ? (
-                <img src={game.thumbnail} alt={game.title} />
+                <Image
+                  src={game.thumbnail}
+                  alt={game.title}
+                  width={600}
+                  height={200}
+                  style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                />
               ) : (
                 <div className={styles["placeholder-image"]}></div>
               )}
@@ -82,7 +89,13 @@ export default function GamesPage() {
             <div className={styles["modal-body"]}>
               <div className={styles["modal-thumbnail"]}>
                 {selectedGame.thumbnail ? (
-                  <img src={selectedGame.thumbnail} alt={selectedGame.title} />
+                  <Image
+                    src={selectedGame.thumbnail}
+                    alt={selectedGame.title}
+                    width={800}
+                    height={300}
+                    style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                  />
                 ) : (
                   <div className={styles["placeholder-image"]}></div>
                 )}
