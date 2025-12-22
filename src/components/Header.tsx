@@ -20,16 +20,6 @@ export default function Header() {
           </Link>
         </div>
         <div className={clsx(styles["tab"])}>
-          <Link href="/projects" className={clsx(styles[""])}>
-            Projects
-          </Link>
-        </div>
-        <div className={clsx(styles["tab"])}>
-          <Link href="/social" className={clsx(styles[""])}>
-            Social
-          </Link>
-        </div>
-        <div className={clsx(styles["tab"])}>
           <Link href="/apps" className={clsx(styles[""])}>
             Apps
           </Link>
