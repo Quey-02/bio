@@ -34,6 +34,11 @@ export default function Header() {
             Apps
           </Link>
         </div>
+        <div className={clsx(styles["tab"])}>
+          <Link href="/games" className={clsx(styles[""])}>
+            Games
+          </Link>
+        </div>
       </div>
     </header>
   );

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Onom RPG",
+    "description": "オノマトペでスキルを撃つゲーム",
+    "thumbnail": "/images/thumbnail/onom_rpg.png",
+    "detailedDescription": "喋ったオノマトペの印象通りのスキルが発動するターン制ゲーム。卒業研究に伴い制作。",
+    "platform": ["Windows10/11"],
+    "tags": ["ターン制バトル", "音声認識", "機械学習"],
+    "techStack": ["Unity", "C#", "Python", "PyTorch"]
+  },
+  {
+    "id": 4,
+    "title": "Coming Soon...",
+    "description": "",
+    "thumbnail": "",
+    "detailedDescription": "",
+    "platform": [],
+    "tags": [],
+    "techStack": [],
+    "comingSoon": true
+  }
+]
