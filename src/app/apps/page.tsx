@@ -1,42 +1,138 @@
 "use client";
 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./page.module.scss";
-import clsx from "clsx";
-import { useEffect, useState } from "react";
-import {
-  fetchNewsSummary,
-  HeadlineSummarization,
-} from "@/utils/news_summary/fetch";
+import type { App } from "../../types/apps";
+import appsData from "../../data/apps.json";
 
-export default function Page() {
-  const [summary, setSummary] = useState<HeadlineSummarization | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+export default function AppsPage() {
+  const [selectedApp, setSelectedApp] = useState<App | null>(null);
+  const apps = appsData as App[];
+  const router = useRouter();
 
-  useEffect(() => {
-    fetchNewsSummary()
-      .then((data) => {
-        setSummary(data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setError("ニュース要約の取得に失敗しました");
-        setLoading(false);
-      });
-  }, []);
+  const openModal = (app: App) => {
+    setSelectedApp(app);
+  };
+
+  const closeModal = () => {
+    setSelectedApp(null);
+  };
+
+  const handleAppClick = (app: App) => {
+    if (app.comingSoon) return;
+
+    if (app.link) {
+      router.push(app.link);
+    } else {
+      openModal(app);
+    }
+  };
 
   return (
-    <div className={clsx(styles["main-container"])}>
-      <div className={clsx(styles[""])}>工事中</div>
-      <h2> today&apos;s news </h2>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      {summary && (
-        <div>
-          <div>
-            期間: {summary.date_start} 〜 {summary.date_end}
+    <div className={styles["main-container"]}>
+      <h1 className={styles["page-title"]}>Apps</h1>
+      <p className={styles["page-description"]}>
+        {/* 作成したアプリの一覧です。クリックで詳細情報をご覧いただけます。 */}
+      </p>
+
+      <div className={styles["apps-grid"]}>
+        {apps.map((app) => (
+          <div
+            key={app.id}
+            className={`${styles["app-card"]} ${app.comingSoon ? styles["coming-soon-card"] : ""}`}
+            onClick={() => handleAppClick(app)}
+          >
+            <div className={styles["app-thumbnail"]}>
+              {app.comingSoon ? (
+                <div className={styles["coming-soon-placeholder"]}></div>
+              ) : app.thumbnail ? (
+                <img src={app.thumbnail} alt={app.title} />
+              ) : (
+                <div className={styles["placeholder-image"]}></div>
+              )}
+            </div>
+            <div className={styles["app-info"]}>
+              <h3 className={styles["app-title"]}>{app.title}</h3>
+              <p className={styles["app-description"]}>{app.description}</p>
+              {app.tags.length > 0 && (
+                <div className={styles["app-tags"]}>
+                  {app.tags.map((tag, index) => (
+                    <span key={index} className={styles["tag"]}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+              {app.techStack.length > 0 && (
+                <div className={styles["app-tags"]}>
+                  {app.techStack.map((tech, index) => (
+                    <span key={index} className={styles["tag"]}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
-          <div>要約: {summary.summarization}</div>
+        ))}
+      </div>
+
+      {/* モーダル */}
+      {selectedApp && (
+        <div className={styles["modal-overlay"]} onClick={closeModal}>
+          <div
+            className={styles["modal-content"]}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className={styles["close-button"]} onClick={closeModal}>
+              ×
+            </button>
+            <h2 className={styles["modal-title"]}>{selectedApp.title}</h2>
+            <div className={styles["modal-body"]}>
+              <div className={styles["modal-thumbnail"]}>
+                {selectedApp.thumbnail ? (
+                  <img src={selectedApp.thumbnail} alt={selectedApp.title} />
+                ) : (
+                  <div className={styles["placeholder-image"]}></div>
+                )}
+              </div>
+              <div className={styles["modal-info"]}>
+                <p className={styles["detailed-description"]}>
+                  {selectedApp.detailedDescription}
+                </p>
+                {selectedApp.tags.length > 0 && (
+                  <div className={styles["info-item"]}>
+                    <strong>タグ:</strong>{" "}
+                    {selectedApp.tags.join(", ")}
+                  </div>
+                )}
+                {selectedApp.techStack.length > 0 && (
+                  <div className={styles["info-item"]}>
+                    <strong>使用技術:</strong>{" "}
+                    {selectedApp.techStack.join(", ")}
+                  </div>
+                )}
+                {!selectedApp.comingSoon && (
+                  selectedApp.link ? (
+                    <button
+                      onClick={() => router.push(selectedApp.link!)}
+                      className={styles["app-link"]}
+                    >
+                      アプリを開く
+                    </button>
+                  ) : (
+                    <button
+                      className={`${styles["app-link"]} ${styles["app-link-disabled"]}`}
+                      disabled
+                    >
+                      アプリを開く
+                    </button>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>

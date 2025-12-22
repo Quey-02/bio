@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "小説推薦AI",
+    "description": "あなたにぴったりの小説を見つけるAIチャット",
+    "thumbnail": "",
+    "detailedDescription": "対話形式であなたの好みを学習し、最適な小説を推薦するAIアシスタント。ジャンル選択から詳細な質問まで、あなたの読書体験をサポートします。",
+    "tags": ["AI", "チャット", "小説推薦"],
+    "techStack": ["Next.js", "React", "TypeScript"],
+    "link": "/apps/novel_search"
+  },
+  {
+    "id": 2,
+    "title": "Coming Soon...",
+    "description": "",
+    "thumbnail": "",
+    "detailedDescription": "",
+    "tags": [],
+    "techStack": [],
+    "comingSoon": true
+  }
+]

@@ -28,20 +28,18 @@ export default function GamesPage() {
         {games.map((game) => (
           <div
             key={game.id}
-            className={`${styles["game-card"]} ${game.comingSoon ? styles["coming-soon-card"] : ""}`}
+            className={`${styles["game-card"]} ${
+              game.comingSoon ? styles["coming-soon-card"] : ""
+            }`}
             onClick={() => !game.comingSoon && openModal(game)}
           >
             <div className={styles["game-thumbnail"]}>
               {game.comingSoon ? (
-                <div className={styles["coming-soon-placeholder"]}>
-                  Coming Soon...
-                </div>
+                <div className={styles["coming-soon-placeholder"]}></div>
               ) : game.thumbnail ? (
                 <img src={game.thumbnail} alt={game.title} />
               ) : (
-                <div className={styles["placeholder-image"]}>
-                  画像
-                </div>
+                <div className={styles["placeholder-image"]}></div>
               )}
             </div>
             <div className={styles["game-info"]}>
@@ -86,7 +84,7 @@ export default function GamesPage() {
                 {selectedGame.thumbnail ? (
                   <img src={selectedGame.thumbnail} alt={selectedGame.title} />
                 ) : (
-                  <div className={styles["placeholder-image"]}>画像</div>
+                  <div className={styles["placeholder-image"]}></div>
                 )}
               </div>
               <div className={styles["modal-info"]}>
@@ -101,8 +99,7 @@ export default function GamesPage() {
                 )}
                 {selectedGame.tags.length > 0 && (
                   <div className={styles["info-item"]}>
-                    <strong>タグ:</strong>{" "}
-                    {selectedGame.tags.join(", ")}
+                    <strong>タグ:</strong> {selectedGame.tags.join(", ")}
                   </div>
                 )}
                 {selectedGame.techStack.length > 0 && (
@@ -111,8 +108,8 @@ export default function GamesPage() {
                     {selectedGame.techStack.join(", ")}
                   </div>
                 )}
-                {!selectedGame.comingSoon && (
-                  selectedGame.link ? (
+                {!selectedGame.comingSoon &&
+                  (selectedGame.link ? (
                     <a
                       href={selectedGame.link}
                       target="_blank"
@@ -128,8 +125,7 @@ export default function GamesPage() {
                     >
                       ゲームをプレイ
                     </button>
-                  )
-                )}
+                  ))}
               </div>
             </div>
           </div>
