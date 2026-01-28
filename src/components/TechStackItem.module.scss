@@ -11,12 +11,12 @@
   }
 
   .box-tech-field-caption {
-    margin-bottom: $spacing-4;
+    margin-bottom: $spacing-5;
 
     .tech-field-caption {
       font-size: $font-size-xl;
       font-weight: $font-weight-bold;
-      color: $color-neutral-900;
+      color: $color-neutral-800;
       margin: 0;
       letter-spacing: $letter-spacing-tight;
     }
@@ -51,7 +51,7 @@
       justify-content: center;
       padding: $spacing-2 $spacing-4;
       background: $color-neutral-50;
-      border-radius: $radius-lg;
+      border-radius: $radius-md;
       color: $color-neutral-700;
       transition: $transition-fast;
 

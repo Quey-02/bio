@@ -3,13 +3,20 @@
 
 .main-container {
   @include container();
+  padding-top: $spacing-12;
+  padding-bottom: $spacing-16;
   animation: fadeInUp $duration-slow $ease-out;
+
+  @include respond-to('md') {
+    padding-top: $spacing-16;
+    padding-bottom: $spacing-20;
+  }
 }
 
 .page-title {
-  font-size: clamp($font-size-3xl, 4vw, $font-size-4xl);
+  font-size: clamp($font-size-2xl, 4vw, $font-size-3xl);
   font-weight: $font-weight-bold;
-  color: $color-neutral-900;
+  color: $color-neutral-800;
   margin: 0 0 $spacing-3 0;
   letter-spacing: $letter-spacing-tight;
 }
@@ -19,7 +26,7 @@
   color: $color-neutral-600;
   line-height: $line-height-relaxed;
   max-width: 65ch;
-  margin-bottom: $spacing-8;
+  margin-bottom: $spacing-10;
 
   @include respond-to('md') {
     margin-bottom: $spacing-12;
