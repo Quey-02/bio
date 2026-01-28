@@ -9,4 +9,5 @@ export interface Game {
   techStack: string[];
   link?: string;
   comingSoon?: boolean;
+  inDevelopment?: boolean;
 }

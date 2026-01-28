@@ -57,8 +57,23 @@
 
   &:hover {
     transform: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: $shadow-sm;
+    border-color: $color-neutral-300;
   }
+}
+
+.in-development-badge {
+  position: absolute;
+  top: $spacing-3;
+  right: $spacing-3;
+  background: linear-gradient(135deg, $color-primary-500 0%, $color-primary-600 100%);
+  color: white;
+  padding: $spacing-1 $spacing-3;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  z-index: 5;
+  box-shadow: $shadow-md;
 }
 
 .game-thumbnail {

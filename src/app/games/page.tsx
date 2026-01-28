@@ -35,6 +35,9 @@ export default function GamesPage() {
             onClick={() => !game.comingSoon && openModal(game)}
           >
             <div className={styles["game-thumbnail"]}>
+              {game.inDevelopment && (
+                <span className={styles["in-development-badge"]}>開発中</span>
+              )}
               {game.comingSoon ? (
                 <div className={styles["coming-soon-placeholder"]}></div>
               ) : game.thumbnail ? (
