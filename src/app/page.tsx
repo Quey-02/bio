@@ -49,7 +49,7 @@ export default function Page() {
         <div className={clsx(styles["game-thumbnails"])}>
           <Link href="/games" className={clsx(styles["thumbnail-card"])}>
             <Image
-              src="/images/thumbnail/onom_rpg.png"
+              src="images/thumbnail/onom_rpg.png"
               alt="Onom RPG"
               width={280}
               height={160}
@@ -60,7 +60,7 @@ export default function Page() {
           <Link href="/games" className={clsx(styles["thumbnail-card"])}>
             <span className={clsx(styles["dev-badge"])}>開発中</span>
             <Image
-              src="/images/thumbnail/wizardsdawn_placeholder.png"
+              src="images/thumbnail/wizardsdawn_placeholder.png"
               alt="Wizard's Dawn"
               width={280}
               height={160}
