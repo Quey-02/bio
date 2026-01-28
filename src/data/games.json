@@ -15,8 +15,8 @@
     "description": "高速飛行ローグライク",
     "thumbnail": "images/thumbnail/wizardsdawn_placeholder.png",
     "detailedDescription": "",
-    "platform": [""],
-    "tags": [""],
+    "platform": ["未定"],
+    "tags": ["未定"],
     "techStack": ["Unity", "C#"],
     "inDevelopment": true
   },
