@@ -31,7 +31,7 @@ export default function GamesPage() {
             key={game.id}
             className={`${styles["game-card"]} ${
               game.comingSoon ? styles["coming-soon-card"] : ""
-            }`}
+            } ${game.inDevelopment ? styles["in-development-card"] : ""}`}
             onClick={() => !game.comingSoon && openModal(game)}
           >
             <div className={styles["game-thumbnail"]}>

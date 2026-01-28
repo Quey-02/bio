@@ -1,0 +1,10 @@
+// ============================================
+// Main SCSS Import File
+// ============================================
+
+// Import design system abstracts
+@forward 'abstracts/variables';
+@forward 'abstracts/mixins';
+
+// Import base styles
+@forward 'base/animations';

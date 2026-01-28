@@ -1,3 +1,27 @@
+@use '@/styles/abstracts/variables' as *;
+@use '@/styles/abstracts/mixins' as *;
 
+.main-container {
+  @include container();
+  animation: fadeInUp $duration-slow $ease-out;
+}
 
+.page-title {
+  font-size: clamp($font-size-3xl, 4vw, $font-size-4xl);
+  font-weight: $font-weight-bold;
+  color: $color-neutral-900;
+  margin: 0 0 $spacing-3 0;
+  letter-spacing: $letter-spacing-tight;
+}
 
+.page-description {
+  font-size: $font-size-lg;
+  color: $color-neutral-600;
+  line-height: $line-height-relaxed;
+  max-width: 65ch;
+  margin-bottom: $spacing-8;
+
+  @include respond-to('md') {
+    margin-bottom: $spacing-12;
+  }
+}

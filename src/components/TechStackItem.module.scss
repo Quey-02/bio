@@ -1,55 +1,71 @@
+@use '@/styles/abstracts/variables' as *;
+@use '@/styles/abstracts/mixins' as *;
+
 .tech-item {
-    .box-tech-field-caption{
-        .tech-field-caption {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
+  animation: fadeInUp $duration-slow $ease-out both;
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 75}ms;
     }
-    
+  }
 
-    .content {
-        display: flex;
-        background-color: #fff;
-        flex-direction: row;
-        align-items: center;
-        height: fit-content;
-        gap: 1rem;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        transition:
-        transform 0.2s,
-        box-shadow 0.2s;
+  .box-tech-field-caption {
+    margin-bottom: $spacing-4;
 
-        padding: 1rem;
-
-        &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-
-        .module-item {
-            width: fit-content;
-            display: flex;
-            flex-direction: row;
-            gap: 0.3rem;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: nowrap;
-            color: #666;
-            text-align: center;
-            line-height: 1.5rem; /* テキストを上下中央揃えにするための設定 */
-
-            * {
-                height: 1.2rem;
-                font-size: 1.2rem;
-                text-align: center;
-
-                line-height: 1.2rem;
-            }
-        }
-        
+    .tech-field-caption {
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      color: $color-neutral-900;
+      margin: 0;
+      letter-spacing: $letter-spacing-tight;
     }
+  }
+
+  .content {
+    display: flex;
+    background-color: $color-bg-primary;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $spacing-4;
+    border: 1px solid $color-neutral-200;
+    border-radius: $radius-xl;
+    padding: $spacing-6;
+    box-shadow: $shadow-sm;
+    transition: transform $duration-fast $ease-out,
+                box-shadow $duration-fast $ease-out,
+                border-color $duration-fast $ease-out;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+      border-color: $color-primary-200;
+    }
+
+    .module-item {
+      display: flex;
+      flex-direction: row;
+      gap: $spacing-2;
+      align-items: center;
+      justify-content: center;
+      padding: $spacing-2 $spacing-4;
+      background: $color-neutral-50;
+      border-radius: $radius-lg;
+      color: $color-neutral-700;
+      transition: $transition-fast;
+
+      &:hover {
+        background: $color-primary-50;
+        color: $color-primary-700;
+      }
+
+      * {
+        height: 1.25rem;
+        font-size: $font-size-base;
+        line-height: 1.25rem;
+        font-weight: $font-weight-medium;
+      }
+    }
+  }
 }

@@ -1,39 +1,228 @@
+@use '@/styles/abstracts/variables' as *;
+@use '@/styles/abstracts/mixins' as *;
+
 .main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  font-size: 2rem; //
+  @include container();
+  min-height: calc(100vh - 200px);
+  @include flex-center();
 }
 
-.github-link{
-    align-items: center;
-    justify-content: center;
-    height: 3rem;
-    line-height: 1rem;
-    background-color: white;
+.hero-section {
+  @include flex-center();
+  flex-direction: column;
+  text-align: center;
+  padding: $spacing-16 0;
+  max-width: 800px;
+  margin: 0 auto;
 
-    :hover{
-        text-decoration: underline;
-        transform: translateY(-2px);
+  @include respond-to('md') {
+    padding: $spacing-24 0;
+  }
+}
+
+.hero-subtitle {
+  font-size: clamp($font-size-2xl, 4vw, $font-size-4xl);
+  color: $color-neutral-800;
+  font-weight: $font-weight-bold;
+  margin: 0 0 $spacing-6 0;
+  letter-spacing: $letter-spacing-tight;
+  animation: fadeInDown $duration-slow $ease-out;
+}
+
+.hero-description {
+  font-size: clamp($font-size-base, 2vw, $font-size-lg);
+  color: $color-neutral-500;
+  line-height: $line-height-relaxed;
+  margin: 0 0 $spacing-8 0;
+  max-width: 60ch;
+  animation: fadeInUp $duration-slow $ease-out 100ms both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: $spacing-4;
+  margin-bottom: $spacing-12;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeInUp $duration-slow $ease-out 200ms both;
+}
+
+.cta-button {
+  @include touch-target(48px);
+  padding: $spacing-4 $spacing-8;
+  border-radius: $radius-2xl;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  transition: $transition-normal;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &.primary {
+    background: $color-primary-500;
+    color: white;
+    box-shadow: $shadow-sm;
+
+    &:hover {
+      background: $color-primary-600;
+      transform: translateY(-3px);
+      box-shadow: $shadow-lg;
     }
+  }
 
-    .github-link-item{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: center;
+  &.secondary {
+    background: $color-bg-primary;
+    color: $color-neutral-600;
+    border: 2px solid $color-neutral-200;
 
-        .github-icon{
-            width: 2rem;
-            height: 2rem;
-            margin-right: 0.5rem;
-        }
-
-        .github-link-text{
-            margin-right: 0.5rem;
-        }
+    &:hover {
+      background: $color-primary-50;
+      border-color: $color-primary-300;
+      color: $color-primary-600;
+      transform: translateY(-3px);
+      box-shadow: $shadow-md;
     }
+  }
+
+  &:focus-visible {
+    @include focus-ring();
+  }
+}
+
+.github-link {
+  @include hover-lift();
+  display: inline-flex;
+  background: $color-bg-primary;
+  border: 1px solid $color-neutral-200;
+  border-radius: $radius-2xl;
+  padding: $spacing-4 $spacing-6;
+  text-decoration: none;
+  color: $color-neutral-600;
+  box-shadow: $shadow-sm;
+  transition: $transition-normal;
+  animation: fadeIn $duration-slow $ease-out 300ms both;
+
+  &:hover {
+    border-color: $color-primary-300;
+    box-shadow: $shadow-md;
+    color: $color-primary-600;
+
+    .github-icon {
+      transform: rotate(360deg);
+    }
+  }
+
+  &:focus-visible {
+    @include focus-ring();
+  }
+}
+
+.github-link-content {
+  display: flex;
+  align-items: center;
+  gap: $spacing-3;
+}
+
+.github-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: transform $duration-slower $ease-out;
+}
+
+.github-link-text {
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+}
+
+// Featured Games Section
+.featured-games {
+  margin-top: $spacing-16;
+  padding-top: $spacing-12;
+  border-top: 1px solid $color-neutral-200;
+  text-align: center;
+  animation: fadeInUp $duration-slow $ease-out 400ms both;
+  width: 100%;
+  max-width: 700px;
+}
+
+.section-title {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-neutral-400;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  margin-bottom: $spacing-8;
+}
+
+.game-thumbnails {
+  display: flex;
+  gap: $spacing-6;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.thumbnail-card {
+  position: relative;
+  width: 280px;
+  background: $color-bg-primary;
+  border: 1px solid $color-neutral-200;
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  text-decoration: none;
+  transition: $transition-normal;
+  box-shadow: $shadow-sm;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-lg;
+    border-color: $color-primary-300;
+  }
+
+  &:focus-visible {
+    @include focus-ring();
+  }
+}
+
+.thumbnail-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.thumbnail-title {
+  display: block;
+  padding: $spacing-4;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-neutral-700;
+  text-align: center;
+}
+
+.dev-badge {
+  position: absolute;
+  top: $spacing-3;
+  right: $spacing-3;
+  background: $color-primary-500;
+  color: white;
+  padding: $spacing-1 $spacing-3;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+}
+
+.view-all-link {
+  display: inline-block;
+  margin-top: $spacing-8;
+  color: $color-primary-600;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  transition: $transition-fast;
+  font-size: $font-size-sm;
+
+  &:hover {
+    color: $color-primary-700;
+    text-decoration: underline;
+  }
 }

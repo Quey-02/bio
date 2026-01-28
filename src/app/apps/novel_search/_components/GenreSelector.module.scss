@@ -1,14 +1,38 @@
+@use '@/styles/abstracts/variables' as *;
+@use '@/styles/abstracts/mixins' as *;
+
 .genre-selector {
-  margin: 1rem 0;
+  margin: $spacing-5 0;
+  animation: fadeInUp $duration-normal $ease-out 100ms both;
 }
 
 .genre-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: $spacing-3;
   justify-content: center;
 }
 
 .genre-button {
-  min-width: 80px;
+  @include touch-target(44px);
+  min-width: 100px;
+  padding: $spacing-3 $spacing-5;
+  background: $color-neutral-50;
+  color: $color-neutral-700;
+  border: 1px solid $color-neutral-200;
+  border-radius: $radius-lg;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &:hover {
+    background: $color-primary-50;
+    border-color: $color-primary-300;
+    color: $color-primary-700;
+  }
+
+  &:focus-visible {
+    @include focus-ring();
+  }
 }

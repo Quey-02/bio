@@ -1,29 +1,151 @@
-header.header{
-    background-color: #282c34;
-    padding: 20px;
-    color: white;
-    text-align: center;
+@use '@/styles/abstracts/variables' as *;
+@use '@/styles/abstracts/mixins' as *;
 
-    h1.site-title{
-        font-size: 10vh;
-        margin: 0;
+.header {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid $color-neutral-200;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .container {
+    @include container();
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: $spacing-4;
+    padding-bottom: $spacing-4;
+  }
+
+  .site-title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-neutral-900;
+    margin: 0;
+    letter-spacing: $letter-spacing-tight;
+
+    @include respond-to('md') {
+      font-size: $font-size-3xl;
     }
+  }
 
-    .tabs-container{
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
+  .tabs-container {
+    display: none;
+    gap: $spacing-2;
 
-        .tab{
-            margin: 0 15px;
-            font-size: 2vh;
-            cursor: pointer;
-            color: white;
-            text-decoration: none;
+    @include respond-to('sm') {
+      display: flex;
+      gap: $spacing-4;
+    }
+  }
 
-            &:hover{
-                text-decoration: underline;
-            }
+  .tab {
+    .tab-link {
+      @include touch-target();
+      padding: $spacing-2 $spacing-4;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      color: $color-neutral-500;
+      text-decoration: none;
+      border-radius: $radius-xl;
+      transition: $transition-normal;
+      position: relative;
+
+      @include respond-to('md') {
+        font-size: $font-size-base;
+      }
+
+      &:hover {
+        color: $color-primary-600;
+        background: $color-primary-50;
+      }
+
+      &.active {
+        color: $color-primary-600;
+        font-weight: $font-weight-semibold;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 24px;
+          height: 2px;
+          background: $color-primary-600;
+          border-radius: $radius-full;
         }
+      }
+
+      &:focus-visible {
+        @include focus-ring();
+      }
     }
+  }
+
+  .mobile-menu-button {
+    @include reset-button();
+    @include touch-target();
+    color: $color-neutral-700;
+    transition: $transition-fast;
+
+    @include respond-to('sm') {
+      display: none;
+    }
+
+    &:hover {
+      color: $color-primary-600;
+    }
+
+    &:focus-visible {
+      @include focus-ring();
+    }
+  }
+
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    top: 73px;
+    background: $color-bg-primary;
+    z-index: 50;
+    padding: $spacing-6;
+    animation: slideInLeft $duration-normal $ease-out;
+
+    @include respond-to('sm') {
+      display: none;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-2;
+    }
+
+    .mobile-menu-link {
+      @include touch-target(48px);
+      padding: $spacing-4;
+      font-size: $font-size-lg;
+      font-weight: $font-weight-medium;
+      color: $color-neutral-600;
+      text-decoration: none;
+      border-radius: $radius-xl;
+      transition: $transition-normal;
+
+      &:hover {
+        background: $color-primary-50;
+        color: $color-primary-600;
+      }
+
+      &.active {
+        background: $color-primary-100;
+        color: $color-primary-700;
+        font-weight: $font-weight-semibold;
+      }
+
+      &:focus-visible {
+        @include focus-ring();
+      }
+    }
+  }
 }
