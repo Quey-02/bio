@@ -1,5 +1,6 @@
 import axios from "@/utils/axios";
 import type {
+  StartChatRequest,
   StartChatResponse,
   ChatMessageRequest,
   ChatMessageResponse,
@@ -9,9 +10,15 @@ const API_BASE = "/novel/chat";
 
 /**
  * チャットセッションを開始する
+ * @param request 初期選択パラメータ（オプション）
  */
-export async function startChat(): Promise<StartChatResponse> {
-  const response = await axios.post<StartChatResponse>(`${API_BASE}/start`, {});
+export async function startChat(
+  request?: StartChatRequest
+): Promise<StartChatResponse> {
+  const response = await axios.post<StartChatResponse>(
+    `${API_BASE}/start`,
+    request ?? {}
+  );
   return response.data;
 }
 

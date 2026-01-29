@@ -1,5 +1,5 @@
 // チャットフェーズ
-export type ChatPhase = 
+export type ChatPhase =
   | "genre_selection"
   | "questioning"
   | "recommending"
@@ -21,11 +21,20 @@ export interface NovelInfo {
   url: string;
 }
 
+// チャット開始リクエスト（Selection First対応）
+export interface StartChatRequest {
+  genre?: string;
+  keywords?: string[];
+  free_text?: string;
+}
+
 // チャット開始レスポンス
 export interface StartChatResponse {
   session_id: string;
   message: string;
   genres: GenreMap;
+  phase: ChatPhase;
+  novels?: NovelInfo[] | null;
 }
 
 // チャットメッセージリクエスト

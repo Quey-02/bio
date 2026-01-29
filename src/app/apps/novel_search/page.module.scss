@@ -105,3 +105,48 @@
   flex: 1;
   @include touch-target(48px);
 }
+
+// Selection First UI
+.selection-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+  background: $color-bg-primary;
+  border-radius: $radius-xl;
+  border: 1px solid $color-neutral-200;
+  padding: $spacing-6;
+  overflow-y: auto;
+  @include custom-scrollbar();
+}
+
+.selection-section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
+}
+
+.selection-label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-neutral-700;
+  margin: 0;
+}
+
+.genre-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-2;
+}
+
+.selection-actions {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
+  margin-top: $spacing-4;
+
+  @include respond-to('sm') {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
