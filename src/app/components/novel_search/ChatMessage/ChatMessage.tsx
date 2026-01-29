@@ -1,7 +1,7 @@
 import styles from "./ChatMessage.module.scss";
 import clsx from "clsx";
 import type { ChatMessage as ChatMessageType } from "@/types/novel_chat";
-import NovelCard from "./NovelCard";
+import NovelCard from "../NovelCard";
 
 interface ChatMessageProps {
   message: ChatMessageType;

@@ -6,9 +6,8 @@ import { useEffect, useRef, useState } from "react";
 import { TextField, Button, Spinner } from "@radix-ui/themes";
 import { PaperPlaneIcon, ReloadIcon } from "@radix-ui/react-icons";
 
-import { useNovelChat } from "./_hooks/useNovelChat";
-import ChatMessage from "./_components/ChatMessage";
-import GenreSelector from "./_components/GenreSelector";
+import { useNovelChat } from "@/app/hooks/novel_search";
+import { ChatMessage, GenreSelector } from "@/app/components/novel_search";
 
 export default function NovelSearchPage() {
   const {
