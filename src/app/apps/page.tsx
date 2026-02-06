@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./page.module.scss";
@@ -30,6 +30,27 @@ export default function AppsPage() {
     }
   };
 
+  const handleCardKeyDown = (e: React.KeyboardEvent, app: App) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleAppClick(app);
+    }
+  };
+
+  const handleEscapeKey = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape" && selectedApp) {
+        closeModal();
+      }
+    },
+    [selectedApp]
+  );
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleEscapeKey);
+    return () => document.removeEventListener("keydown", handleEscapeKey);
+  }, [handleEscapeKey]);
+
   return (
     <div className={styles["main-container"]}>
       <h1 className={styles["page-title"]}>Apps</h1>
@@ -43,6 +64,10 @@ export default function AppsPage() {
             key={app.id}
             className={`${styles["app-card"]} ${app.comingSoon ? styles["coming-soon-card"] : ""}`}
             onClick={() => handleAppClick(app)}
+            onKeyDown={(e) => handleCardKeyDown(e, app)}
+            role="button"
+            tabIndex={app.comingSoon ? -1 : 0}
+            aria-disabled={app.comingSoon}
           >
             <div className={styles["app-thumbnail"]}>
               {app.comingSoon ? (
@@ -91,11 +116,14 @@ export default function AppsPage() {
           <div
             className={styles["modal-content"]}
             onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
           >
-            <button className={styles["close-button"]} onClick={closeModal}>
+            <button className={styles["close-button"]} onClick={closeModal} aria-label="閉じる">
               ×
             </button>
-            <h2 className={styles["modal-title"]}>{selectedApp.title}</h2>
+            <h2 id="modal-title" className={styles["modal-title"]}>{selectedApp.title}</h2>
             <div className={styles["modal-body"]}>
               <div className={styles["modal-thumbnail"]}>
                 {selectedApp.thumbnail ? (

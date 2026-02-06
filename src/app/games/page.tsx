@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import styles from "./page.module.scss";
 import type { Game } from "../../types/games";
@@ -18,6 +18,29 @@ export default function GamesPage() {
     setSelectedGame(null);
   };
 
+  const handleCardKeyDown = (e: React.KeyboardEvent, game: Game) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      if (!game.comingSoon) {
+        openModal(game);
+      }
+    }
+  };
+
+  const handleEscapeKey = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape" && selectedGame) {
+        closeModal();
+      }
+    },
+    [selectedGame]
+  );
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleEscapeKey);
+    return () => document.removeEventListener("keydown", handleEscapeKey);
+  }, [handleEscapeKey]);
+
   return (
     <div className={styles["main-container"]}>
       <h1 className={styles["page-title"]}>Games</h1>
@@ -33,6 +56,10 @@ export default function GamesPage() {
               game.comingSoon ? styles["coming-soon-card"] : ""
             } ${game.inDevelopment ? styles["in-development-card"] : ""}`}
             onClick={() => !game.comingSoon && openModal(game)}
+            onKeyDown={(e) => handleCardKeyDown(e, game)}
+            role="button"
+            tabIndex={game.comingSoon ? -1 : 0}
+            aria-disabled={game.comingSoon}
           >
             <div className={styles["game-thumbnail"]}>
               {game.inDevelopment && (
@@ -84,11 +111,14 @@ export default function GamesPage() {
           <div
             className={styles["modal-content"]}
             onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
           >
-            <button className={styles["close-button"]} onClick={closeModal}>
+            <button className={styles["close-button"]} onClick={closeModal} aria-label="閉じる">
               ×
             </button>
-            <h2 className={styles["modal-title"]}>{selectedGame.title}</h2>
+            <h2 id="modal-title" className={styles["modal-title"]}>{selectedGame.title}</h2>
             <div className={styles["modal-body"]}>
               <div className={styles["modal-thumbnail"]}>
                 {selectedGame.thumbnail ? (
