@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
-import "@radix-ui/themes/styles.css";
 import clsx from "clsx";
 import styles from "./layout.module.scss";
 
