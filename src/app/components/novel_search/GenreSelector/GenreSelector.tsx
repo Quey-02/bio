@@ -5,7 +5,7 @@ import { Button } from "@radix-ui/themes";
 
 interface GenreSelectorProps {
   genres: GenreMap;
-  onSelect: (genreName: string) => void;
+  onSelect: (genreKey: string) => void;
   disabled?: boolean;
 }
 
@@ -22,7 +22,7 @@ export default function GenreSelector({
             key={key}
             variant="soft"
             size="2"
-            onClick={() => onSelect(name)}
+            onClick={() => onSelect(key)}
             disabled={disabled}
             className={clsx(styles["genre-button"])}
           >
