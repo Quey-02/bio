@@ -5,7 +5,6 @@ import type {
   ChatPhase,
   GenreMap,
   StartChatRequest,
-  NovelInfo,
 } from "@/types/novel_chat";
 
 interface UseNovelChatReturn {
@@ -15,7 +14,6 @@ interface UseNovelChatReturn {
   isLoading: boolean;
   error: string | null;
   sessionId: string | null;
-  novels: NovelInfo[];
   initializeChat: (request?: StartChatRequest) => Promise<void>;
   sendUserMessage: (message: string) => Promise<void>;
 }
@@ -27,7 +25,6 @@ export function useNovelChat(): UseNovelChatReturn {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
-  const [novels, setNovels] = useState<NovelInfo[]>([]);
 
   const generateMessageId = () => {
     return `msg-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
@@ -37,18 +34,12 @@ export function useNovelChat(): UseNovelChatReturn {
     setIsLoading(true);
     setError(null);
     setMessages([]);
-    setNovels([]);
 
     try {
       const response = await startChat(request);
       setSessionId(response.session_id);
       setGenres(response.genres);
       setPhase(response.phase);
-
-      // 即座に結果が返された場合は小説リストを設定
-      if (response.novels) {
-        setNovels(response.novels);
-      }
 
       // AIのメッセージを追加
       setMessages([
@@ -90,11 +81,6 @@ export function useNovelChat(): UseNovelChatReturn {
 
         setPhase(response.phase);
 
-        // 小説リストを更新
-        if (response.novels) {
-          setNovels(response.novels);
-        }
-
         // AIのレスポンスを追加
         const assistantMessage: ChatMessage = {
           id: generateMessageId(),
@@ -122,7 +108,6 @@ export function useNovelChat(): UseNovelChatReturn {
     isLoading,
     error,
     sessionId,
-    novels,
     initializeChat,
     sendUserMessage,
   };
